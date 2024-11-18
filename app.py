@@ -35,6 +35,13 @@ def classify_image(image_path):
 
     return {"class": class_labels[predicted_class], "confidence": float(confidence)}
 
+@app.route('/')
+def home():
+    """
+    Default route to confirm the API is running.
+    """
+    return "Welcome to the Brain Tumor Prediction API! Use the /predict endpoint to classify images."
+
 @app.route('/predict', methods=['POST'])
 def predict():
     """
@@ -65,4 +72,4 @@ def predict():
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=False, host='0.0.0.0')
